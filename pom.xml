@@ -20,6 +20,9 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<sonar.organization>knreddy3391</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+		<sonar.projectkey>knreddy3391_webserviceapplication</sonar.projectkey>
 		<java.version>1.8</java.version>
 		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
 		<!-- Needed by io.fabric8 docker-maven-plugin -->
