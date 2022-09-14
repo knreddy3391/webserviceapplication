@@ -15,17 +15,20 @@ steps:
     SonarCloud: 'webappservice'
     organization: 'knreddy3391'
     scannerMode: 'Other'
+- script: |
+           export SONAR_TOKEN=9745e9ac8b02d4b3af9a30f60474356b27af8d0e
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
-    goals: 'clean package'
+    goals: 'sonar:sonar verify'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     javaHomeOption: 'JDKVersion'
     mavenVersionOption: 'Default'
     mavenAuthenticateFeed: false
     effectivePomSkip: false
-    sonarQubeRunAnalysis: false
+    sonarQubeRunAnalysis: true
+    sqMavenPluginVersionChoice: 'latest'
 
 - task: SonarCloudAnalyze@1
 - task: Docker@2
