@@ -23,7 +23,9 @@
 		<sonar.organization>knreddy3391</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
 		<sonar.projectkey>knreddy3391_webserviceapplication</sonar.projectkey>
-		<java.version>1.8</java.version>
+		<!-- <java.version>1.11</java.version> -->
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
 		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
 		<!-- Needed by io.fabric8 docker-maven-plugin -->
 		<jar>${project.build.directory}/${project.build.finalName}.jar</jar>
