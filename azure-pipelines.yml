@@ -14,7 +14,7 @@ steps:
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
-    goals: 'sonar:sonar verify'
+    goals: 'package'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     javaHomeOption: 'JDKVersion'
@@ -22,11 +22,16 @@ steps:
     mavenVersionOption: 'Default'
     mavenAuthenticateFeed: false
     effectivePomSkip: false
-    sonarQubeRunAnalysis: true
-    sqMavenPluginVersionChoice: 'latest'
+    sonarQubeRunAnalysis: false
 
 - task: Docker@2
   inputs:
     containerRegistry: 'webapp'
+    repository: 'apphelloworld'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
+- task: AzureWebAppContainer@1
+  inputs:
+    azureSubscription: 'azure-automatic'
+    appName: 'apphellowrold'
+    containers: 'webserviceapp.azurecr.io/apphelloworld:$(Build.BuildId)'
