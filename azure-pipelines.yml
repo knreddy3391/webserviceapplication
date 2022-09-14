@@ -11,18 +11,6 @@ pool:
 
 steps:
 
-- task: JavaToolInstaller@0
-  inputs:
-    versionSpec: '11'
-    jdkArchitectureOption: 'x64'
-    jdkSourceOption: 'PreInstalled'
-- task: SonarCloudPrepare@1
-  inputs:
-    SonarCloud: 'webappservice'
-    organization: 'knreddy3391'
-    scannerMode: 'Other'
-- script: |
-           export SONAR_TOKEN=9745e9ac8b02d4b3af9a30f60474356b27af8d0e
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
@@ -37,7 +25,6 @@ steps:
     sonarQubeRunAnalysis: true
     sqMavenPluginVersionChoice: 'latest'
 
-- task: SonarCloudAnalyze@1
 - task: Docker@2
   inputs:
     containerRegistry: 'webapp'
