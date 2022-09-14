@@ -54,18 +54,29 @@
 
     <pluginManagement>
         <plugins>
-		<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-		</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>sonar-maven-plugin</artifactId>
 				<version>3.0.2</version>
 			</plugin>
-        </plugins>
-    </pluginManagement>
-</build>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<mainClass>com.places.Main</mainClass>
+				</configuration>
+				
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+		</pluginManagement>
+	</build>
 	<repositories>
 		<repository>
 			<id>spring-snapshots</id>
