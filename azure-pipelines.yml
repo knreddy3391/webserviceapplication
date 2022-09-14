@@ -29,3 +29,8 @@ steps:
     sqMavenPluginVersionChoice: 'pom'
 
 - task: SonarCloudAnalyze@1
+- task: Docker@2
+  inputs:
+    containerRegistry: 'webapp'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
