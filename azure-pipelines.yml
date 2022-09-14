@@ -12,7 +12,7 @@ pool:
 steps:
 - task: SonarCloudPrepare@1
   inputs:
-    SonarCloud: 'sonar'
+    SonarCloud: 'webappservice'
     organization: 'knreddy3391'
     scannerMode: 'Other'
 - task: Maven@3
@@ -25,7 +25,11 @@ steps:
     mavenVersionOption: 'Default'
     mavenAuthenticateFeed: false
     effectivePomSkip: false
-    sonarQubeRunAnalysis: true
-    sqMavenPluginVersionChoice: 'pom'
+    sonarQubeRunAnalysis: false
 
 - task: SonarCloudAnalyze@1
+- task: Docker@2
+  inputs:
+    containerRegistry: 'webapp'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
